@@ -21,7 +21,7 @@ func longRunningTask(n int, wg *sync.WaitGroup, q chan byte) {
 
 func main() {
 	var wg sync.WaitGroup
-	// Initialize buffered channel with size of 10.
+	// Create buffered channel with size of 10.
 	q := make(chan byte, 10)
 
 	// Start 100 goroutines.
