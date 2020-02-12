@@ -11,6 +11,7 @@ import (
 	"time"
 )
 
+// Counts the words with more than 5 letters.
 func worker(id int, lines chan string, wg *sync.WaitGroup, counter *uint64) {
 	defer wg.Done()
 

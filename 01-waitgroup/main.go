@@ -19,14 +19,14 @@ func longRunningTask(n int, wg *sync.WaitGroup) {
 func main() {
 	var wg sync.WaitGroup
 
-	// Fan-out 10 goroutines.
+	// Start 10 goroutines.
 	fmt.Println("Will run 10 goroutines...")
 	for i := 1; i <= 10; i++ {
 		wg.Add(1)
 		go longRunningTask(i, &wg)
 	}
 
-	// Fan-in.
+	// Wait for all goroutines to finish.
 	wg.Wait()
 	fmt.Println("Finished.")
 }
