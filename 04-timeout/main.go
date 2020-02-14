@@ -16,6 +16,7 @@ func longRunningTask(n int, c chan int) {
 
 func main() {
 	var wg sync.WaitGroup
+	rand.Seed(time.Now().UnixNano())
 
 	// Start 10 goroutines.
 	fmt.Println("Will run 10 goroutines...")
