@@ -26,7 +26,7 @@ func worker(id int, lines chan string, wg *sync.WaitGroup, counter *uint64) {
 		}
 
 		// This would be wrong:
-		// *counter += count
+		//*counter += count
 		atomic.AddUint64(counter, count)
 	}
 }
@@ -67,7 +67,7 @@ func main() {
 	var wg sync.WaitGroup
 	fmt.Printf("Number of CPUs: %d\n", runtime.NumCPU())
 
-	for i := 0; i < 4; i++ {
+	for i := 0; i < runtime.NumCPU(); i++ {
 		id := i
 		wg.Add(1)
 		go worker(id, lines, &wg, &counter)
