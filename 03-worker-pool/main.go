@@ -59,7 +59,7 @@ func readFile(fn string, lines chan string) {
 func main() {
 	lines := make(chan string, 1000)
 
-	go readFile("input/big.txt", lines)
+	go readFile("../input/big.txt", lines)
 
 	start := time.Now()
 
